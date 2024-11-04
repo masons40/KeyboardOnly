@@ -1,0 +1,1 @@
+ALTER TABLE "keyboard_messages" RENAME TO "keyboard_chats";
