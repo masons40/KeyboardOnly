@@ -1,6 +1,6 @@
 'use client'
 
-import { Send } from "lucide-react";
+import { Loader2, Send } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { saveMessageAction } from "~/server/actions/actions";
@@ -20,6 +20,7 @@ const VirtualKeyBoard = () => {
     const [cursorPosition, setCursorPosition] = useState<Point>({ x: 0, y: 0 })
     const [caps, setCaps] = useState(false)
     const [alt, setAlt] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const appendValue = (value: string) => {
         setInputText((prev) => {
@@ -88,6 +89,7 @@ const VirtualKeyBoard = () => {
     }
 
     const saveMessage = async () => {
+        setLoading(true)
         await saveMessageAction(inputText).then(
             () => {
                 setInputText('')
@@ -96,6 +98,7 @@ const VirtualKeyBoard = () => {
                 toast.error("Couldn't save the message");
             },
         );
+        setLoading(false)
     }
 
     return (
@@ -103,7 +106,10 @@ const VirtualKeyBoard = () => {
             <div className="flex items-center space-x-2 w-5/6 mx-auto">
                 <InputBox value={inputTextArray} position={cursorPosition} text={inputText} pos={cursorPos} className="h-36" />
                 {/* <Textarea value={inputText} readOnly/> */}
-                <Button onClick={saveMessage} className="bg-button text-white dark:hover:bg-button/70 hover:bg-button/90"><Send />Send</Button>
+                <Button onClick={saveMessage} className="bg-button text-white dark:hover:bg-button/70 hover:bg-button/90">
+                    {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Send className="mr-2 h-4 w-4" />}
+                    Send
+                </Button>
             </div>
             <div className="grid grid-cols-13 grid-rows-5 w-fit gap-1 mx-auto">
                 <KeyboardButton className="w-16 h-16 rounded-md" value={"`"} alt={'¬'} capsOn={caps} altOn={alt} appendValue={appendValue} label={"`"} />
