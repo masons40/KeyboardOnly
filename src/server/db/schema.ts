@@ -3,6 +3,7 @@
 
 import { sql } from "drizzle-orm";
 import {
+  bigint,
   pgTableCreator,
   serial,
   text,
@@ -28,4 +29,14 @@ export const chats = createTable(
   },
 );
 
+
+export const audit = createTable(
+  "audit",
+  {
+    id: serial("id").primaryKey(),
+    counter: bigint("counter", { mode: 'number' })
+  },
+);
+
 export type SelectChat = typeof chats.$inferSelect;
+export type SelectAudit = typeof audit.$inferSelect;

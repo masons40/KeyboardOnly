@@ -13,7 +13,7 @@ export interface Point {
     y: number;
 }
 
-const VirtualKeyBoard = () => {
+const VirtualKeyBoard = ({ count }: { count: number }) => {
     const [inputTextArray, setInputTextArray] = useState<string[][]>([['']]);
     const [inputText, setInputText] = useState<string>('');
     const [cursorPos, setCursorPos] = useState<number>(0)
@@ -103,6 +103,7 @@ const VirtualKeyBoard = () => {
 
     return (
         <div className="space-y-4 w-full p-2 pr-0 mx-auto">
+            <h1 className="text-center font-bold">Messages sent so far: {count.toLocaleString()}</h1>
             <div className="flex items-center space-x-2 w-5/6 mx-auto">
                 <InputBox value={inputTextArray} position={cursorPosition} text={inputText} pos={cursorPos} className="h-36" />
                 {/* <Textarea value={inputText} readOnly/> */}
