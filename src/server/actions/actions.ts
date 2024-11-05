@@ -1,6 +1,7 @@
 'use server';
 
 import { eq } from "drizzle-orm";
+import { revalidatePath } from "next/cache";
 import { db } from "../db";
 import { audit, chats } from "../db/schema";
 
@@ -16,7 +17,9 @@ export async function getAudit() {
 export async function getMessages() {
   'use server';
 
-  return await db.select().from(chats);   
+  const messages = await db.select().from(chats);   
+  revalidatePath('/')
+  return messages
 }
 
 export async function saveMessageAction(message: string) {
