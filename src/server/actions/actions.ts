@@ -1,7 +1,23 @@
 'use server';
 
+import { eq } from "drizzle-orm";
 import { db } from "../db";
-import { chats } from "../db/schema";
+import { audit, chats } from "../db/schema";
+
+
+export async function getAudit() {
+  'use server';
+
+  return await db.query.audit.findFirst({
+    where: eq(audit.id, 1),
+  });
+}
+
+export async function getMessages() {
+  'use server';
+
+  return await db.select().from(chats);   
+}
 
 export async function saveMessageAction(message: string) {
     'use server';

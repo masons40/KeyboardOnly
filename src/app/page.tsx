@@ -1,17 +1,12 @@
-import { eq } from "drizzle-orm";
 import Footer from "~/components/footer/footer";
 import VirtualKeyBoard from "~/components/keyboard/virtual-keyboard";
 import Menu from "~/components/menu/menu";
 import Messages from "~/components/messages/messages";
 import { ModeToggle } from "~/components/mode-toggle";
-import { db } from "~/server/db";
-import { audit } from "~/server/db/schema";
+import { getAudit } from "~/server/actions/actions";
 
 export default async function HomePage() {
-  const auditData = await db.query.audit.findFirst({
-    where: eq(audit.id, 1),
-  });
-  console.log("audit data: ", auditData)
+  const auditData = await getAudit()
   return (
     <div className="grid grid-cols-3 gap-4 h-screen relative">
       <ModeToggle className={"absolute top-2 left-2"} />
