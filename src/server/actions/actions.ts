@@ -17,7 +17,7 @@ export async function getAudit() {
 export async function getMessages() {
   'use server';
 
-  const messages = await db.select().from(chats);   
+  const messages = await db.select().from(chats).orderBy(chats.createdAt).limit(20);
   revalidatePath('/')
   return messages
 }

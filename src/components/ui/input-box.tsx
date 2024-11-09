@@ -1,19 +1,37 @@
 'use client'
 
-import { type Point } from "../keyboard/virtual-keyboard";
+import { useEffect, useRef } from "react";
 
 export type InputBoxProps = {
   className?: string;
-  value: string[][]
-  position: Point
-
   text: string;
   pos: number;
 }
 
-const InputBox = ({ className, value, position, text, pos }: InputBoxProps) => {
+const InputBox = ({ text, pos }: InputBoxProps) => {
+
+  const textBoxRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (textBoxRef.current) {
+      textBoxRef.current.scrollTop = textBoxRef.current.scrollHeight
+    }
+  }, [])
+
+  const handleInput = () => {
+    if (textBoxRef.current) {
+      textBoxRef.current.scrollTop = textBoxRef.current.scrollHeight
+    }
+  }
+
   return (
-    <div className="w-5/6 rounded-md border-input bg-input max-w-xl overflow-y-scroll mx-auto p-2 text-md border h-32 whitespace-pre-wrap break-words focus:outline-none pointer-events-none">
+    <div role="textbox"
+      aria-multiline="true"
+      tabIndex={0}
+      className="w-96 h-28 overflow-y-scroll bg-white border border-gray-300 rounded-md p-3 shadow-sm text-wrap whitespace-pre-wrap break-words"
+      ref={textBoxRef}
+      onInput={handleInput}
+    >
       {text.slice(0, pos)}
       <span className="animate-blink border-r-2 border-black dark:border-white"></span>
       {text.slice(pos)}

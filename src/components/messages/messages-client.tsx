@@ -11,9 +11,7 @@ const MessagesClient = ({ chats }: { chats: SelectChat[] }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const supabase = createClient();
 
-  const scrollToBottom = (
-
-  ) => {
+  const scrollToBottom = () => {
     containerRef.current?.scrollIntoView({
       behavior: 'smooth', block: 'end',
       inline: 'nearest',
@@ -29,6 +27,7 @@ const MessagesClient = ({ chats }: { chats: SelectChat[] }) => {
         id: Math.random(),
         message: payload.new.message as string,
         createdAt: new Date(payload.new.created_at as string),
+        deleteAt: new Date(payload.new.delete_at as string)
       }
       setMessages([...messages, p])
 
@@ -45,7 +44,7 @@ const MessagesClient = ({ chats }: { chats: SelectChat[] }) => {
         {messages.map((message, index) => {
           return <div key={index} className="flex justify-end">
             <div className="bg-button text-white rounded-lg py-2 px-4 max-w-[80%] text-right">
-              <p>{message.message}</p>
+              <p className="break-words whitespace-pre-wrap">{message.message}</p>
               <p className="text-xs text-muted-foreground mt-1">{message.createdAt.toLocaleString()}</p>
             </div>
           </div>

@@ -1,0 +1,1 @@
+ALTER TABLE "keyboard_chats" ALTER COLUMN "delete_at" SET DEFAULT NOW() + INTERVAL '5 minutes';

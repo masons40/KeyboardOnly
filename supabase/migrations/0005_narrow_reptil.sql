@@ -1,0 +1,1 @@
+ALTER TABLE "keyboard_chats" ADD COLUMN "delete_at" timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL;
