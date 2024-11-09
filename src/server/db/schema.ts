@@ -26,7 +26,7 @@ export const chats = createTable(
     createdAt: timestamp("created_at", { withTimezone: true })
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
-    deleteAt: timestamp('delete_at', {withTimezone: true}).default(sql`NOW() + INTERVAL '5 minutes'`).notNull()
+    deleteAt: timestamp('delete_at', {withTimezone: true}).default(sql`NOW() + INTERVAL '1 day'`).notNull()
   },
 );
 
