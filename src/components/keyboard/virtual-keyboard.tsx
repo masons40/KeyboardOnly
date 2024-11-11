@@ -1,14 +1,14 @@
 'use client'
 
 import { ArrowBigDown, ArrowBigLeft, ArrowBigRight, ArrowBigUp, ArrowBigUpDash, Delete, Loader2, Send } from "lucide-react";
-import { useState } from "react";
+import { type SetStateAction, useState } from "react";
 import { toast } from "sonner";
 import { saveMessageAction } from "~/server/actions/actions";
 import { Button } from "../ui/button";
 import { InputBox } from "../ui/input-box";
 import { KeyboardButton } from "../ui/keyboard-button";
 
-const VirtualKeyBoard = () => {
+const VirtualKeyBoard = ({ setOpen }: { setOpen?: (value: SetStateAction<boolean>) => void }) => {
     const [inputText, setInputText] = useState<string>('');
     const [cursorPos, setCursorPos] = useState<number>(0)
     const [caps, setCaps] = useState(false)
@@ -72,8 +72,11 @@ const VirtualKeyBoard = () => {
         <div className="space-y-4 w-full md:p-2 pr-0 mx-auto">
             <div className="flex-wrap flex items-center justify-center space-x-2 w-5/6 mx-auto">
                 <InputBox text={inputText} pos={cursorPos} className="h-36" />
-                {/* <Textarea value={inputText} readOnly/> */}
-                <Button onClick={saveMessage} disabled={inputText.length === 0} className="mt-2 bg-button text-white dark:hover:bg-button/70 hover:bg-button/90">
+                <Button onClick={async () => {
+                    await saveMessage();
+                    if (setOpen) setOpen(false);
+                }
+                } disabled={inputText.length === 0} className="mt-2 bg-button text-white dark:hover:bg-button/70 hover:bg-button/90">
                     {loading ? <Loader2 className="mr-1 h-4 w-4 animate-spin" /> : <Send className="mr-1 h-4 w-4" />}
                     Send
                 </Button>

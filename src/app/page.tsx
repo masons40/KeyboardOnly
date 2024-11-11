@@ -10,7 +10,7 @@ import { ModeToggle } from "~/components/mode-toggle";
 export default function HomePage() {
   return (
     <div className="flex flex-wrap lg:grid justify-center lg:grid-cols-3 gap-4 h-screen relative">
-      <div className="absolute top-2 left-2 flex items-center space-x-1">
+      <div className="w-full absolute top-0 left-0 p-2 flex items-center space-x-1 justify-between md:w-fit">
         <ModeToggle className={""} />
         <Info />
       </div>

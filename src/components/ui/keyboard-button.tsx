@@ -1,7 +1,7 @@
 'use client'
 
 import { cva, type VariantProps } from "class-variance-authority";
-import { ReactNode } from "react";
+import { type ReactNode } from "react";
 
 import { cn } from "~/lib/utils";
 
@@ -60,15 +60,18 @@ const KeyboardButton = ({ className, variant, size, alt, value, label, caps, cap
         alt && <div className="absolute top-2 left-2 text-xs">{alt}</div>
       }
       {label}
-      {caps && <div className="relative w-1 h-1 rounded-full overflow-hidden bg-gray-200 shadow-lg">
-        <div className={`absolute inset-4 rounded-full animate-pulse`}>
-          <div className={`absolute inset-0 rounded-full ${capsOn ? 'bg-blue-400' : 'bg-blue-200'} ${caps ? 'blur-xl' : ''}`}></div>
-          <div className={`absolute inset-2 rounded-full ${capsOn ? 'bg-blue-400' : 'bg-blue-200'} ${caps ? 'blur-md' : ''}`}></div>
-          <div className={`absolute inset-4 rounded-full ${capsOn ? 'bg-blue-400' : 'bg-blue-200'} ${caps ? 'blur-sm' : ''}`}></div>
-          <div className={`absolute inset-6 rounded-full ${capsOn ? 'bg-blue-400' : 'bg-blue-200'}`}></div>
+      {caps && <div className="absolute bottom-2 right-2 w-1 h-1">
+        <div className={`relative w-full h-full rounded-full ${capsOn ? 'animate-pulse' : ''}`}>
+          <div className={`absolute inset-0 rounded-full ${capsOn ? 'bg-blue-400' : 'bg-gray-700'} ${capsOn ? 'blur-sm' : ''}`}></div>
+          <div className={`absolute inset-0 rounded-full ${capsOn ? 'bg-blue-400' : 'bg-gray-700'}`}></div>
         </div>
       </div>}
-      {value == 'Shift' && <div className={`w-1 h-1 rounded-full ${altOn ? 'bg-blue-400' : 'bg-blue-200'} absolute bottom-2 right-2 drop-shadow-glow`}></div>}
+      {label == 'Shift' && <div className="absolute bottom-2 right-2 w-1 h-1">
+        <div className={`relative w-full h-full rounded-full ${altOn ? 'animate-pulse' : ''}`}>
+          <div className={`absolute inset-0 rounded-full ${altOn ? 'bg-blue-400' : 'bg-gray-700'} ${altOn ? 'blur-sm' : ''}`}></div>
+          <div className={`absolute inset-0 rounded-full ${altOn ? 'bg-blue-400' : 'bg-gray-700'}`}></div>
+        </div>
+      </div>}
 
     </button>
   )
