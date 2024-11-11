@@ -135,7 +135,7 @@ const VirtualKeyBoard = ({ setOpen }: { setOpen?: (value: SetStateAction<boolean
                 <KeyboardButton className="row-start-4 w-12 h-12 xl:w-16 xl:h-16 rounded-md" value={"/"} alt={'?'} altOn={alt} appendValue={appendValue} label={"/"} />
                 <KeyboardButton className="col-start-13 row-start-4 w-12 h-12 xl:w-16 xl:h-16 rounded-md" value={"'"} alt={'@'} altOn={alt} appendValue={appendValue} label={"'"} />
 
-                <div className="col-span-2 col-start-1 row-start-5" onClick={() => setAlt(!alt)}><KeyboardButton className="w-full h-12 xl:h-16 rounded-md" value={""} altOn={alt} appendValue={appendValue} label={"Shift"} /></div>
+                <div className="col-span-2 col-start-1 row-start-5" onClick={() => setAlt(!alt)}><KeyboardButton className="w-full h-12 xl:h-16 rounded-md" value={""} altOn={alt} label={"Shift"} /></div>
                 <KeyboardButton className="col-start-3 row-start-5 w-12 h-12 xl:w-16 xl:h-16 rounded-md" value={"-"} alt={'_'} altOn={alt} appendValue={appendValue} label={"-"} />
                 <KeyboardButton className="col-start-4 row-start-5 w-12 h-12 xl:w-16 xl:h-16 rounded-md" value={"="} alt={'+'} altOn={alt} appendValue={appendValue} label={"="} />
                 <KeyboardButton className="col-span-5 col-start-5 row-start-5 h-12 xl:h-16 rounded-md" value={"\u00A0"} altOn={alt} appendValue={appendValue} label={"Space Bar"} />

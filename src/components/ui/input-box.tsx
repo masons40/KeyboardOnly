@@ -24,6 +24,7 @@ const InputBox = ({ text, pos }: InputBoxProps) => {
     }
   }
 
+  console.log("text: ", text, "\npos: ", pos)
   return (
     <div role="textbox"
       aria-multiline="true"
@@ -33,7 +34,7 @@ const InputBox = ({ text, pos }: InputBoxProps) => {
       onInput={handleInput}
     >
       {text.slice(0, pos)}
-      <span className="animate-blink border-r-2 border-black dark:border-white"></span>
+      <span className="animate-blink border-r-2 border-black"></span>
       {text.slice(pos)}
     </div>
   )
