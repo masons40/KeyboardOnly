@@ -26,11 +26,13 @@ const VirtualKeyBoard = ({ setOpen }: { setOpen?: (value: SetStateAction<boolean
     }
 
     const backspace = () => {
-        setInputText((prev) => {
-            return prev.slice(0, cursorPos - 1) + prev.slice(cursorPos, inputText.length);
+        if (cursorPos > 0) {
+            setInputText((prev) => {
+                return prev.slice(0, cursorPos - 1) + prev.slice(cursorPos, inputText.length);
+            }
+            )
+            setCursorPos(cursorPos - 1)
         }
-        )
-        setCursorPos(cursorPos - 1)
     }
 
     const left = () => {
