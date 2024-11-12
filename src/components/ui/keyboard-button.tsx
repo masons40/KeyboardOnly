@@ -40,7 +40,7 @@ const KeyboardButton = ({ className, variant, size, alt, value, label, caps, cap
   const clickValue = () => {
     if (appendValue) {
       const ascii = value.charCodeAt(0);
-      if (ascii >= 97 && ascii <= 122 && capsOn) {
+      if (ascii >= 97 && ascii <= 122 && (capsOn || altOn)) {
         const capital = String.fromCharCode(ascii - 32)
         appendValue(capital)
       } else if (alt && altOn) {

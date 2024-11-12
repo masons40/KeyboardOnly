@@ -70,6 +70,8 @@ const VirtualKeyBoard = ({ setOpen }: { setOpen?: (value: SetStateAction<boolean
         setMobileKeyboard(view)
     }
 
+    console.log("cursor pos:", cursorPos)
+
     return (
         <div className="space-y-4 w-full md:p-2 pr-0 mx-auto">
             <div className="flex-wrap flex items-center justify-center space-x-2 w-5/6 mx-auto">
