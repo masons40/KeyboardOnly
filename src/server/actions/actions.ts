@@ -1,6 +1,6 @@
 'use server';
 
-import { eq } from "drizzle-orm";
+import { desc, eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { db } from "../db";
 import { audit, chats } from "../db/schema";
@@ -17,7 +17,7 @@ export async function getAudit() {
 export async function getMessages() {
   'use server';
 
-  const messages = await db.select().from(chats).orderBy(chats.createdAt).limit(20);
+  const messages = (await db.select().from(chats).orderBy(desc(chats.createdAt)).limit(50)).reverse();
   revalidatePath('/')
   return messages
 }
