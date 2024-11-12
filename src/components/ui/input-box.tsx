@@ -23,8 +23,6 @@ const InputBox = ({ text, pos }: InputBoxProps) => {
       textBoxRef.current.scrollTop = textBoxRef.current.scrollHeight
     }
   }
-
-  console.log("text: ", text, "\npos: ", pos)
   return (
     <div role="textbox"
       aria-multiline="true"
