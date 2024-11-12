@@ -11,7 +11,7 @@ const Footer = ({ className }: { className?: string }) => {
           <Image src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width={144} height={40} />
         </a>
         <Button asChild>
-          <Link href="masonsmith.me" target="_blank">My Website</Link>
+          <Link href="https://masonsmith.me/" target="_blank">My Website</Link>
         </Button>
       </div>
       <h1 className="text-sm text-muted-foreground text-center mt-4">

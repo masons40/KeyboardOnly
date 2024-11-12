@@ -4,7 +4,6 @@ import VirtualKeyBoard from "~/components/keyboard/virtual-keyboard";
 import { VirtualKeyboardMobile } from "~/components/keyboard/virtual-keyboard-mobile";
 import Menu from "~/components/menu/menu";
 import Messages from "~/components/messages/messages";
-import Tally from "~/components/messages/tally";
 import { ModeToggle } from "~/components/mode-toggle";
 
 export default function HomePage() {
@@ -16,14 +15,14 @@ export default function HomePage() {
       </div>
       <div className="col-span-2 hidden lg:grid place-items-center">
         <Menu />
-        <Tally />
+        {/* <Tally /> */}
         <VirtualKeyBoard />
         <Footer />
       </div>
       <Menu className="lg:hidden" />
       <Messages />
       <VirtualKeyboardMobile className="lg:hidden" />
-      <Tally className="lg:hidden" />
+      {/* <Tally className="lg:hidden" /> */}
       <Footer className="lg:hidden mb-2" />
     </div>
   );

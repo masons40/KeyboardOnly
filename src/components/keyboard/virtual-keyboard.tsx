@@ -217,8 +217,8 @@ const VirtualKeyBoard = ({ setOpen }: { setOpen?: (value: SetStateAction<boolean
                     <KeyboardButton className="col-start-6 row-start-2 h-8 w-8 rounded-sm" value={")"} label={")"} appendValue={appendValue} />
                     <KeyboardButton className="col-start-7 row-start-2 h-8 w-8 rounded-sm" value={"$"} label={"$"} appendValue={appendValue} />
                     <KeyboardButton className="col-start-8 row-start-2 h-8 w-8 rounded-sm" value={"&"} label={"&"} appendValue={appendValue} />
-                    <KeyboardButton className="col-start-9 row-start-2 h-8 w-8 rounded-sm" value={""} label={<ArrowBigUp className="mx-auto" />} />
-                    <KeyboardButton className="col-start-10 row-start-2 h-8 w-8 rounded-sm" value={""} label={<ArrowBigDown className="mx-auto" />} />
+                    <div onClick={() => up()} className="col-start-9 row-start-2"><KeyboardButton className="h-8 w-8 rounded-sm" value={""} label={<ArrowBigUp className="mx-auto" />} /></div>
+                    <div onClick={() => down()} className="col-start-10 row-start-2"><KeyboardButton className="h-8 w-8 rounded-sm" value={""} label={<ArrowBigDown className="mx-auto" />} /></div>
 
                     <div className="w-full col-start-1 row-start-3" onClick={() => changeView("alt")}><KeyboardButton className="h-8 w-8 rounded-sm text-xs" value={""} label={"#+="} /></div>
                     <KeyboardButton className="col-start-2 row-start-3 h-8 w-8 rounded-sm" value={"."} label={"."} appendValue={appendValue} />
@@ -228,8 +228,8 @@ const VirtualKeyBoard = ({ setOpen }: { setOpen?: (value: SetStateAction<boolean
                     <KeyboardButton className="col-start-6 row-start-3 h-8 w-8 rounded-sm" value={"'"} label={"'"} appendValue={appendValue} />
                     <KeyboardButton className="col-start-7 row-start-3 h-8 w-8 rounded-sm" value={"@"} label={"@"} appendValue={appendValue} />
                     <KeyboardButton className="col-start-8 row-start-3 h-8 w-8 rounded-sm" value={"\""} label={"\""} appendValue={appendValue} />
-                    <KeyboardButton className="col-start-9 row-start-3 h-8 w-8 rounded-sm" value={""} label={<ArrowBigLeft className="mx-auto" />} />
-                    <KeyboardButton className="col-start-10 row-start-3 h-8 w-8 rounded-sm" value={""} label={<ArrowBigRight className="mx-auto" />} />
+                    <div onClick={() => left()} className="col-start-9 row-start-3"><KeyboardButton className="h-8 w-8 rounded-sm" value={""} label={<ArrowBigLeft className="mx-auto" />} /></div>
+                    <div onClick={() => right()} className="col-start-10 row-start-3"><KeyboardButton className="h-8 w-8 rounded-sm" value={""} label={<ArrowBigRight className="mx-auto" />} /></div>
 
                     <div className="col-span-2 col-start-1 row-start-4" onClick={() => changeView("text")}><KeyboardButton className="w-full h-8 rounded-sm" value={""} label={"ABC"} /></div>
                     <KeyboardButton className="col-start-3 row-start-4 h-8 w-8 rounded-sm" value={","} label={","} appendValue={appendValue} />
