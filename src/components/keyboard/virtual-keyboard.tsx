@@ -27,6 +27,7 @@ const VirtualKeyBoard = ({ setOpen }: { setOpen?: (value: SetStateAction<boolean
 
     const backspace = () => {
         if (cursorPos > 0) {
+
             setInputText((prev) => {
                 return prev.slice(0, cursorPos - 1) + prev.slice(cursorPos, inputText.length);
             }
@@ -69,8 +70,6 @@ const VirtualKeyBoard = ({ setOpen }: { setOpen?: (value: SetStateAction<boolean
     const changeView = async (view: "text" | "numbers" | "alt") => {
         setMobileKeyboard(view)
     }
-
-    console.log("cursor pos:", cursorPos)
 
     return (
         <div className="space-y-4 w-full md:p-2 pr-0 mx-auto">
