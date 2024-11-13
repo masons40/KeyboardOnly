@@ -24,15 +24,21 @@ export async function getMessages() {
 
 export async function saveMessageAction(message: string) {
     'use server';
-
-    const savedMessage = await db.insert(chats)
-    .values({
-      message: message
-    })
-    .returning();
-      
-    if (savedMessage) {
-      return true
+    try {
+      if (message.replace(/\s/g, "")) {
+        const savedMessage = await db.insert(chats)
+        .values({
+          message: message
+        })
+        .returning();
+          
+        if (savedMessage) {
+          return true
+        }
+      } else {
+        throw new Error('Failed to send message')
+      }
+    } catch (error) {
+      return new Error('Failed to send message')
     }
-    return new Error('fail');
 }

@@ -61,7 +61,8 @@ const VirtualKeyBoard = ({ setOpen }: { setOpen?: (value: SetStateAction<boolean
                 setInputText('')
             },
             () => {
-                toast.error("Couldn't save the message");
+                toast.error("Invalid message");
+                setInputText('')
             },
         );
         setLoading(false)
@@ -72,14 +73,14 @@ const VirtualKeyBoard = ({ setOpen }: { setOpen?: (value: SetStateAction<boolean
     }
 
     return (
-        <div className="space-y-4 w-full md:p-2 pr-0 mx-auto">
+        <div className="space-y-4 w-full md:p-2 p-0 mx-auto">
             <div className="flex-wrap flex items-center justify-center space-x-2 w-5/6 mx-auto">
                 <InputBox text={inputText} pos={cursorPos} className="h-36" />
                 <Button onClick={async () => {
                     await saveMessage();
                     if (setOpen) setOpen(false);
                 }
-                } disabled={inputText.length === 0} className="mt-2 bg-button text-white dark:hover:bg-button/70 hover:bg-button/90">
+                } disabled={inputText.replace(/\s/g, "") === ""} className="mt-2 bg-button text-white dark:hover:bg-button/70 hover:bg-button/90">
                     {loading ? <Loader2 className="mr-1 h-4 w-4 animate-spin" /> : <Send className="mr-1 h-4 w-4" />}
                     Send
                 </Button>

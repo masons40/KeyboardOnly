@@ -5,6 +5,7 @@ import { useState } from "react"
 import {
     Dialog,
     DialogContent,
+    DialogTitle,
     DialogTrigger
 } from "~/components/ui/dialog"
 import { cn } from "~/lib/utils"
@@ -22,7 +23,8 @@ export const VirtualKeyboardMobile = ({ className }: { className?: string }) => 
                         Keyboard
                     </Button>
                 </DialogTrigger>
-                <DialogContent className="px-1">
+                <DialogContent className="px-0">
+                    <DialogTitle className="pl-2 pb-1">Keyboard Area</DialogTitle>
                     <VirtualKeyBoard setOpen={setOpen} />
                 </DialogContent>
             </Dialog></div>

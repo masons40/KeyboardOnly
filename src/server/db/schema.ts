@@ -22,7 +22,7 @@ export const chats = createTable(
   "chats",
   {
     id: serial("id").primaryKey(),
-    message: text("message"),
+    message: text("message").notNull(),
     createdAt: timestamp("created_at", { withTimezone: true })
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
