@@ -13,21 +13,30 @@ const InputBox = ({ text, pos }: InputBoxProps) => {
   const textBoxRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (textBoxRef.current) {
-      textBoxRef.current.scrollTop = textBoxRef.current.scrollHeight
-    }
-  }, [])
+    scrollToBottomSmooth()
+  }, [text])
 
   const handleInput = () => {
     if (textBoxRef.current) {
       textBoxRef.current.scrollTop = textBoxRef.current.scrollHeight
     }
   }
+
+  const scrollToBottomSmooth = () => {
+    if (textBoxRef.current) {
+      textBoxRef.current.scrollTo({
+        top: textBoxRef.current.scrollHeight,
+        behavior: 'smooth'
+      })
+    }
+  }
+
+
   return (
     <div role="textbox"
       aria-multiline="true"
       tabIndex={0}
-      className="w-96 h-28 overflow-y-scroll bg-input border border-gray-300 rounded-md p-3 shadow-sm text-wrap whitespace-pre-wrap break-words"
+      className="w-80 md:w-96 h-28 overflow-y-scroll bg-input border border-gray-300 rounded-md p-3 shadow-sm text-wrap whitespace-pre-wrap break-words"
       ref={textBoxRef}
       onInput={handleInput}
     >

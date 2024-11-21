@@ -1,10 +1,11 @@
 import { cn } from "~/lib/utils";
 import { getAudit } from "~/server/actions/actions";
+import { Badge } from "../ui/badge";
 
 const Tally = async ({ className }: { className?: string }) => {
     const auditData = await getAudit();
     return (
-        <h1 className={cn("text-center font-bold", className)}>Messages sent so far: {auditData?.counter?.toLocaleString() ?? 0}</h1>
+        <Badge className={cn("", className)}>Total Messages: {auditData?.counter?.toLocaleString() ?? 0}</Badge>
     )
 }
 

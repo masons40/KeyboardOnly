@@ -15,14 +15,12 @@ export default function HomePage() {
       </div>
       <div className="col-span-2 hidden lg:grid place-items-center">
         <Menu />
-        {/* <Tally /> */}
         <VirtualKeyBoard />
         <Footer />
       </div>
       <Menu className="lg:hidden" />
       <Messages />
       <VirtualKeyboardMobile className="lg:hidden" />
-      {/* <Tally className="lg:hidden" /> */}
       <Footer className="lg:hidden mb-2" />
     </div>
   );

@@ -2,8 +2,10 @@
 
 import { desc, eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
+import { headers } from "next/headers";
 import { db } from "../db";
 import { audit, chats } from "../db/schema";
+import { ratelimit } from "../ratelimiter";
 
 
 export async function getAudit() {
@@ -24,6 +26,8 @@ export async function getMessages() {
 
 export async function saveMessageAction(message: string) {
     'use server';
+    const ip = headers().get('x-forwarded-for'); //getting user's ip 
+    const {remaining, limit, success} = await ratelimit.limit(ip!);
     try {
       if (message.replace(/\s/g, "")) {
         const savedMessage = await db.insert(chats)

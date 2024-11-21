@@ -23,7 +23,7 @@ export const VirtualKeyboardMobile = ({ className }: { className?: string }) => 
                         Keyboard
                     </Button>
                 </DialogTrigger>
-                <DialogContent className="px-0">
+                <DialogContent className="px-0 w-11/12 rounded-lg">
                     <DialogTitle className="pl-2 pb-1">Keyboard Area</DialogTitle>
                     <VirtualKeyBoard setOpen={setOpen} />
                 </DialogContent>
