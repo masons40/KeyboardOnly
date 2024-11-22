@@ -26,7 +26,7 @@ const Tally = ({ className }: { className?: string }) => {
         return () => clearInterval(intervalId)
     }, [])
     return (
-        <Badge className={cn("", className)}>Total Messages: <NumberTicker value={counter} className="text-black ml-1" /></Badge>
+        <Badge className={cn("", className)}>Total Messages: <NumberTicker value={counter} className="ml-1" /></Badge>
     )
 }
 
