@@ -14,13 +14,15 @@ const Info = () => {
                 <DialogHeader>
                     <DialogTitle>Keyboard Only</DialogTitle>
                     <DialogDescription>
-                        Description
+                        About
                     </DialogDescription>
                 </DialogHeader>
-                <p>
-                    This is a realtime messaging project where users can only type with the keyboard provided on the website.
-                    Messages are automatically deleted 24 hours after posting. All messages are anonymous.
-                </p>
+                <ul className="text-sm text-muted-foreground space-y-1">
+                    <li>This is a realtime messaging project where users can only type with the keyboard provided on the website.</li>
+                    <li>Messages are automatically deleted 24 hours after posting and messages are anonymous.</li>
+                    <li>Diacritics and Accent characters can be found by holding down the button.</li>
+                    <li>Feature ideas or problems? <br />Email here: <br /><a href="mailto:admin@keyboard-only.com" className="text-blue-300">admin@keyboard-only.com</a></li>
+                </ul>
                 <DialogFooter className="sm:justify-start">
                     <DialogClose asChild>
                         <Button type="button" variant="secondary">

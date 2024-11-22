@@ -26,7 +26,7 @@ export async function getMessages() {
 
 export async function saveMessageAction(message: string) {
     'use server';
-    const ip = headers().get('x-forwarded-for'); //getting user's ip 
+    const ip = headers().get('x-forwarded-for');
     const {remaining, limit, success} = await ratelimit.limit(ip!);
     try {
       if (message.replace(/\s/g, "")) {

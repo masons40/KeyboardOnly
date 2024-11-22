@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Footer from "~/components/footer/footer";
 import Info from "~/components/info";
 import VirtualKeyBoard from "~/components/keyboard/virtual-keyboard";
@@ -5,6 +6,11 @@ import { VirtualKeyboardMobile } from "~/components/keyboard/virtual-keyboard-mo
 import Menu from "~/components/menu/menu";
 import Messages from "~/components/messages/messages";
 import { ModeToggle } from "~/components/mode-toggle";
+
+export const metadata: Metadata = {
+  title: 'Keyboard Only',
+  description: 'A fun realtime messaging site where users can only type with the keyboard provided on the website.',
+}
 
 export default function HomePage() {
   return (

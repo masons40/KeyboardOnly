@@ -38,9 +38,10 @@ export interface ButtonProps
   diacritics?: string[];
   diacriticCaptials?: string[];
   appendValue?: (value: string) => void
+  disabled: boolean
 }
 
-const KeyboardButton = ({ className, variant, size, alt, value, label, caps, capsOn = false, altOn = false, diacritics, diacriticCaptials, appendValue }: ButtonProps) => {
+const KeyboardButton = ({ className, variant, size, alt, value, label, caps, capsOn = false, altOn = false, diacritics, diacriticCaptials, appendValue, disabled = false }: ButtonProps) => {
 
   const [isPopupVisible, setPopupVisible] = useState(false);
   const [capitalDiacritics, setCapitalDiacritics] = useState(capsOn)
@@ -90,6 +91,7 @@ const KeyboardButton = ({ className, variant, size, alt, value, label, caps, cap
         onTouchStart={handleMouseDown}
         onTouchEnd={handleMouseUp}
         onTouchCancel={handleMouseUp}
+        disabled={disabled}
       >
         {
           alt && <div className="absolute top-2 left-2 text-xs">{alt}</div>
@@ -112,7 +114,7 @@ const KeyboardButton = ({ className, variant, size, alt, value, label, caps, cap
       {isPopupVisible && (diacritics) && (
         <Dialog open={isPopupVisible} onOpenChange={() => setPopupVisible(!isPopupVisible)}>
           <DialogContent className="w-11/12 mx-auto rounded-lg">
-            <DialogTitle>Diacritics for the letter {value}</DialogTitle>
+            <DialogTitle>Diacritics/Accents for the letter &apos;{value}&apos;</DialogTitle>
             <div className="flex items-center space-x-2">
               <Switch id="capital-mode" checked={capitalDiacritics} onCheckedChange={() => setCapitalDiacritics(!capitalDiacritics)} />
               <Label htmlFor="capital-mode">Capitalise</Label>
