@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 'use client'
 
 import { useEffect, useState } from "react";
@@ -16,7 +17,7 @@ const Tally = ({ className }: { className?: string }) => {
         }
 
         // Fetch immediately on mount
-        fetchCounter()
+        void fetchCounter()
 
         // Set up interval to fetch every 30 seconds
         const intervalId = setInterval(fetchCounter, 30000)

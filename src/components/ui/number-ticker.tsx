@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 "use client";
 
 import { useInView, useMotionValue, useSpring } from "framer-motion";
