@@ -63,7 +63,7 @@ const VirtualKeyBoard = ({ setOpen }: { setOpen?: (value: SetStateAction<boolean
                 setInputText('')
             },
             () => {
-                toast.error("Invalid message");
+                toast.error("Invalid message (no urls) or limit reached");
                 setInputText('')
             },
         );

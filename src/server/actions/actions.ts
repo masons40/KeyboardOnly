@@ -27,9 +27,10 @@ export async function getMessages() {
 export async function saveMessageAction(message: string) {
     'use server';
     const ip = headers().get('x-forwarded-for');
+    const urlRegex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/g;
     const {remaining, limit, success} = await ratelimit.limit(ip!);
     try {
-      if (message.replace(/\s/g, "")) {
+      if (message.replace(/\s/g, "") && message.match(urlRegex) == null) {
         const savedMessage = await db.insert(chats)
         .values({
           message: message
