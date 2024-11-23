@@ -20,13 +20,23 @@ export default function HomePage() {
       <div className="col-span-2 hidden lg:grid place-items-center">
         <Menu />
         {/* <VirtualKeyBoard /> */}
-        <h1>Keyboard only will be back shortly!</h1>
+        <div className='text-center lg:hidden space-x-2'><h1 >Keyboard only will be back shortly! Just doing maintence.
+          follow here for more updates:
+        </h1>
+          <a href="https://www.threads.net/@keyboard_only" target="_blank" className='text-blue-300'>Threads</a>
+          <a href="https://www.instagram.com/keyboard_only/" target="_blank" className='text-blue-300'>Instagram</a>
+          <a href="https://bsky.app/profile/keyboardonly.bsky.social" target="_blank" className='text-blue-300'>Bluesky</a></div>
         <Footer />
       </div>
       <Menu className="lg:hidden" />
       <Messages />
       {/* <VirtualKeyboardMobile className="lg:hidden" /> */}
-      <h1>Keyboard only will be back shortly!</h1>
+      <div className='text-center lg:hidden space-x-2'><h1 >Keyboard only will be back shortly! Just doing maintence.
+        follow here for more updates:
+      </h1>
+        <a href="https://www.threads.net/@keyboard_only" target="_blank" className='text-blue-300'>Threads</a>
+        <a href="https://www.instagram.com/keyboard_only/" target="_blank" className='text-blue-300'>Instagram</a>
+        <a href="https://bsky.app/profile/keyboardonly.bsky.social" target="_blank" className='text-blue-300'>Bluesky</a></div>
       <Footer className="lg:hidden mb-2" />
     </div>
   );
