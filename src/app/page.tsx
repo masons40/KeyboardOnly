@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import Footer from "~/components/footer/footer";
 import Info from "~/components/info";
-import VirtualKeyBoard from "~/components/keyboard/virtual-keyboard";
-import { VirtualKeyboardMobile } from "~/components/keyboard/virtual-keyboard-mobile";
 import Menu from "~/components/menu/menu";
 import Messages from "~/components/messages/messages";
 import { ModeToggle } from "~/components/mode-toggle";
@@ -21,12 +19,14 @@ export default function HomePage() {
       </div>
       <div className="col-span-2 hidden lg:grid place-items-center">
         <Menu />
-        <VirtualKeyBoard />
+        {/* <VirtualKeyBoard /> */}
+        <h1>Keyboard only will be back shortly!</h1>
         <Footer />
       </div>
       <Menu className="lg:hidden" />
       <Messages />
-      <VirtualKeyboardMobile className="lg:hidden" />
+      {/* <VirtualKeyboardMobile className="lg:hidden" /> */}
+      <h1>Keyboard only will be back shortly!</h1>
       <Footer className="lg:hidden mb-2" />
     </div>
   );
