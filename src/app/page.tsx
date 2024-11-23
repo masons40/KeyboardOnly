@@ -20,8 +20,8 @@ export default function HomePage() {
       <div className="col-span-2 hidden lg:grid place-items-center">
         <Menu />
         {/* <VirtualKeyBoard /> */}
-        <div className='text-center lg:hidden space-x-2'><h1 >Keyboard only will be back shortly! Just doing maintence.
-          follow here for more updates:
+        <div className='text-center space-x-2'><h1 >Keyboard only will be back shortly! Just doing maintence.
+          Follow here for more updates:
         </h1>
           <a href="https://www.threads.net/@keyboard_only" target="_blank" className='text-blue-300'>Threads</a>
           <a href="https://www.instagram.com/keyboard_only/" target="_blank" className='text-blue-300'>Instagram</a>
@@ -32,7 +32,7 @@ export default function HomePage() {
       <Messages />
       {/* <VirtualKeyboardMobile className="lg:hidden" /> */}
       <div className='text-center lg:hidden space-x-2'><h1 >Keyboard only will be back shortly! Just doing maintence.
-        follow here for more updates:
+        Follow here for more updates:
       </h1>
         <a href="https://www.threads.net/@keyboard_only" target="_blank" className='text-blue-300'>Threads</a>
         <a href="https://www.instagram.com/keyboard_only/" target="_blank" className='text-blue-300'>Instagram</a>
